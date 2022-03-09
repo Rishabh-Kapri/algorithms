@@ -145,7 +145,7 @@ func (dll *DoublyLinkedList) RemoveAt(index int) *Node {
             // dequeue
             return dll.Dequeue()
         } else if index == dll.size - 1 {
-            // popk
+            // pop
             return dll.Pop()
         } else {
             nodeToRemove := dll.GetAt(index)

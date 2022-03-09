@@ -7,6 +7,10 @@ type Node struct {
     next *Node
 }
 
+func (node *Node) Next() *Node {
+    return node.next
+}
+
 type SinglyLinkedList struct {
     head *Node
     tail *Node
@@ -24,6 +28,10 @@ func (sll SinglyLinkedList) Print() {
         node = node.next
     }
     fmt.Println()
+}
+
+func (sll *SinglyLinkedList) GetHead() *Node {
+    return sll.head
 }
 
 func (sll *SinglyLinkedList) Enqueue(data int) {
@@ -156,4 +164,14 @@ func (sll *SinglyLinkedList) Reverse() {
     sll.head = prevNode
     fmt.Print("Reversed list: ")
     sll.Print()
+}
+
+// Connect tail to the node at index
+func (sll *SinglyLinkedList) Connect(index int) {
+    if index < 0 || index >= sll.size - 1 {
+        return
+    } else {
+        nodeToConnect := sll.GetAt(index)
+        sll.tail.next =  nodeToConnect
+    }
 }
